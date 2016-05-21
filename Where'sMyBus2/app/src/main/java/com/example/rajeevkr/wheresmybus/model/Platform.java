@@ -1,4 +1,4 @@
-package com.example.rajeevkr.wheresmybus.entity;
+package com.example.rajeevkr.wheresmybus.model;
 
 /**
  * POJO that defines the data model
