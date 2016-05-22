@@ -1,1 +1,1 @@
-# Claiment
+# Claimant
