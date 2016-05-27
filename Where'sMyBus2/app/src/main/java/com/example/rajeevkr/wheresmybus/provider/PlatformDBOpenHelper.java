@@ -12,15 +12,15 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class PlatformDBOpenHelper extends SQLiteOpenHelper {
     private static PlatformDBOpenHelper platFormDBOpenHelperInstanse;
     private static final String DB_NAME = "platforms.db";
-    private static final String TABLE_NAME = "platforms";
+    static final String TABLE_NAME = "platforms";
     private static final int DB_VERSION = 1;
 
     private static final String CREATE_TABLE = "CREATE TABLE " +
             TABLE_NAME + "( " +
-            PlatformInfoContract._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            PlatformInfoContract.COLUMN_BUS + " TEXT NOT NULL, " +
-            PlatformInfoContract.COLUMN_ROUTE + " TEXT NOT NULL, " +
-            PlatformInfoContract.COLUMN_PLATFORM + " INTEGER" + ");";
+            PlatformInfoContract.PlatformItems._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            PlatformInfoContract.PlatformItems.COLUMN_BUS + " TEXT NOT NULL, " +
+            PlatformInfoContract.PlatformItems.COLUMN_ROUTE + " TEXT NOT NULL, " +
+            PlatformInfoContract.PlatformItems.COLUMN_PLATFORM + " INTEGER" + ");";
 
     /***
      * Since theres a one-one relation between DBHelper &
