@@ -17,6 +17,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <provider
+            android:name=".provider.PlatformProvider"
+            android:authorities="com.example.rajeevkr.wheremybus.provider"
+            android:exported="false" />
     </application>
 
 </manifest>

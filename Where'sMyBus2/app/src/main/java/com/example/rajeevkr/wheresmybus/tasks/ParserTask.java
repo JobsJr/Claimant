@@ -33,7 +33,7 @@ public class ParserTask extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected Void doInBackground(Void... params) {
-        PlatformParser parser = new PlatformParser();
+        PlatformParser parser = new PlatformParser(mContext);
         parser.startDocParsing(mHtmlResponse);
         return null;
     }

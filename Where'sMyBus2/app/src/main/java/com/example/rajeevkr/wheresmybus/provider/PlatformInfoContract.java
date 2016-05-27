@@ -11,8 +11,8 @@ import android.provider.BaseColumns;
 public final class PlatformInfoContract {
 
     private static final String SCHEMA = "content://";
-    private static final String AUTHORITY = "com.example.rajeevkr.wheremybus.provider";
-    private static final Uri BASE_CONTENT_URI = Uri.parse(SCHEMA + AUTHORITY);
+    public static final String AUTHORITY = "com.example.rajeevkr.wheremybus.provider";
+    public static final Uri BASE_CONTENT_URI = Uri.parse(SCHEMA + AUTHORITY);
 
     static final int PLATFORMS = 1;
     static final int PLATFORM = 2;

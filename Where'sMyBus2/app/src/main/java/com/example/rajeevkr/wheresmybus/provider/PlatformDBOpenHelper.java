@@ -20,7 +20,7 @@ public class PlatformDBOpenHelper extends SQLiteOpenHelper {
             PlatformInfoContract.PlatformItems._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             PlatformInfoContract.PlatformItems.COLUMN_BUS + " TEXT NOT NULL, " +
             PlatformInfoContract.PlatformItems.COLUMN_ROUTE + " TEXT NOT NULL, " +
-            PlatformInfoContract.PlatformItems.COLUMN_PLATFORM + " INTEGER" + ");";
+            PlatformInfoContract.PlatformItems.COLUMN_PLATFORM + " TEXT NOT NULL" + ");";
 
     /***
      * Since theres a one-one relation between DBHelper &

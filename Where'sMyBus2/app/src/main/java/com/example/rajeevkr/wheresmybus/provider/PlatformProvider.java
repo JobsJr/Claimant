@@ -3,7 +3,6 @@ package com.example.rajeevkr.wheresmybus.provider;
 import android.content.ContentProvider;
 import android.content.ContentUris;
 import android.content.ContentValues;
-import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -62,7 +61,7 @@ public class PlatformProvider extends ContentProvider {
         long id = 0;
         switch (PlatformInfoContract.sUriMatcher.match(uri)) {
             case PlatformInfoContract.PLATFORMS:
-                id = sqLiteDatabase.insert(PlatformDBOpenHelper.TABLE_NAME, null, values);
+                id = sqLiteDatabase.insertWithOnConflict(PlatformDBOpenHelper.TABLE_NAME, null, values, SQLiteDatabase.CONFLICT_REPLACE);
                 break;
             case PlatformInfoContract.PLATFORM:
                 id = sqLiteDatabase.insertWithOnConflict(PlatformDBOpenHelper.TABLE_NAME, null, values, SQLiteDatabase.CONFLICT_REPLACE);
