@@ -10,6 +10,7 @@ import android.os.RemoteException;
 import android.util.Log;
 
 import com.example.rajeevkr.wheresmybus.provider.PlatformInfoContract;
+import com.example.rajeevkr.wheresmybus.utils.Utils;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -25,15 +26,13 @@ import java.util.ArrayList;
 public class PlatformParser {
     private Element mRouteElements = null;
     Context mContext;
-    private static final String PREFS_NAME = "sync_status";
-    private static final String KEY_SYNC_STATUS = "key_sync_status";
 
     public PlatformParser(Context mContext) {
         this.mContext = mContext;
     }
 
     public void startDocParsing(String response) {
-        if (!getSyncStatus()) {
+        if (!Utils.getSyncStatus(mContext)) {
 
             Document doc = Jsoup.parse(response);
             Elements table = doc.getElementsByTag("table");
@@ -74,7 +73,7 @@ public class PlatformParser {
             e.printStackTrace();
         }
         if (isTobeAdded) {
-            setSyncStatus();
+            Utils.setSyncStatus(mContext);
         }
     }
 
@@ -97,17 +96,6 @@ public class PlatformParser {
 
     }
 
-    private void setSyncStatus() {
-        SharedPreferences sharedPreferences = mContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean(KEY_SYNC_STATUS, Boolean.TRUE);
-        editor.apply();
-    }
 
-    private boolean getSyncStatus() {
-        SharedPreferences sharedPreferences = mContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        boolean value = sharedPreferences.getBoolean(KEY_SYNC_STATUS, Boolean.FALSE);
-        return value;
-    }
 }
 

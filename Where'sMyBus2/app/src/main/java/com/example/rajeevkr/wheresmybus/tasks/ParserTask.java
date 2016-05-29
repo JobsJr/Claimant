@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 
+import com.example.rajeevkr.wheresmybus.activity.MainActivity;
 import com.example.rajeevkr.wheresmybus.parser.PlatformParser;
 
 /**
@@ -22,16 +23,6 @@ public class ParserTask extends AsyncTask<Void, Void, Void> {
     }
 
     @Override
-    protected void onPreExecute() {
-        super.onPreExecute();
-        mProgressDialog = new ProgressDialog(mContext);
-        mProgressDialog.setIndeterminate(true);
-        mProgressDialog.setMessage("Please wait while the data loads!!");
-        mProgressDialog.show();
-
-    }
-
-    @Override
     protected Void doInBackground(Void... params) {
         PlatformParser parser = new PlatformParser(mContext);
         parser.startDocParsing(mHtmlResponse);
@@ -40,8 +31,12 @@ public class ParserTask extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected void onPostExecute(Void aVoid) {
-        if (mProgressDialog != null && mProgressDialog.isShowing()) {
-            mProgressDialog.dismiss();
+        if (mContext instanceof MainActivity) {
+            ((MainActivity) mContext).onParseCompleted();
         }
+    }
+
+    public static interface OnParseCompleted {
+        void onParseCompleted();
     }
 }
