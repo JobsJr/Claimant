@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/AppTheme.ListItem"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/layout_route_container"
+        android:layout_width="78dp"
+        android:layout_height="78dp"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/bus_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="4dp"
+            android:src="@drawable/ic_directions_bus_white_18dp" />
+
+        <TextView
+            android:id="@+id/tv_platform"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textColor="@color/colorWhite"
+            android:textSize="24sp"
+            tools:text="279C" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_platform_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/layout_route_container"
+        android:orientation="horizontal"
+        android:padding="4dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            app:srcCompat="@drawable/ic_location_on_18" />
+
+        <TextView
+            android:id="@+id/tv_bus_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:textColor="@color/colorBlack"
+            android:textSize="18dp"
+            tools:text="12" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_platform_container"
+        android:layout_toRightOf="@id/layout_route_container"
+        android:orientation="horizontal"
+        android:padding="4dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            app:srcCompat="@drawable/ic_directions_black_18px" />
+
+        <TextView
+            android:id="@+id/tv_via"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:padding="2dp"
+            android:textColor="@color/colorBlack"
+            android:textSize="14dp"
+            tools:text="Banashankari, Sarakki, Konanankunte" />
+    </LinearLayout>
+
+
+</RelativeLayout>
