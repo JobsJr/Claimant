@@ -11,7 +11,7 @@ import android.provider.BaseColumns;
 public final class PlatformInfoContract {
 
     private static final String SCHEMA = "content://";
-    public static final String AUTHORITY = "com.example.rajeevkr.wheremybus.provider";
+    public static final String AUTHORITY = "com.claimant.dev.wheremybus.provider";
     public static final Uri BASE_CONTENT_URI = Uri.parse(SCHEMA + AUTHORITY);
 
     static final int PLATFORMS = 1;
@@ -42,8 +42,9 @@ public final class PlatformInfoContract {
         public static final Uri CONTENT_URI = Uri.withAppendedPath(BASE_CONTENT_URI, PATH);
 
         public static final String[] PROJECTION_ALL = {PlatformItems._ID, PlatformItems.COLUMN_BUS,
-                PlatformItems.COLUMN_ROUTE,
-                PlatformItems.COLUMN_PLATFORM};
+                PlatformItems.COLUMN_PLATFORM,
+                PlatformItems.COLUMN_ROUTE
+        };
         public static final String DEFAULT_SORT_ORDER = COLUMN_BUS + " ASC";
 
 

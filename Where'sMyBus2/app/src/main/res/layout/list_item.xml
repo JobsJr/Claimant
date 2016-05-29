@@ -5,6 +5,7 @@
     style="@style/AppTheme.ListItem"
     android:orientation="horizontal">
 
+
     <LinearLayout
         android:id="@+id/layout_route_container"
         android:layout_width="78dp"
@@ -24,6 +25,7 @@
             android:id="@+id/tv_bus_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:padding="8dp"
             android:textColor="@color/colorWhite"
             android:textSize="24sp"
@@ -77,15 +79,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="marquee"
+            android:maxLines="1"
             android:padding="2dp"
             android:textColor="@color/colorBlack"
             android:textSize="14dp"
             tools:text="Banashankari, Sarakki, Konanankunte" />
     </LinearLayout>
 
+
     <View
-        android:layout_width="wrap_content"
-        android:layout_height="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layerType="software"
         android:layout_alignParentBottom="true"
         android:layout_below="@id/layout_route_container"
         android:background="@drawable/divider_dotted" />

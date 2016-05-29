@@ -24,6 +24,7 @@ public class PlatformRecyclerViewAdapter extends CursorRecyclerViewAdapter<Platf
         mContext = context;
     }
 
+
     @Override
     public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(mContext).inflate(R.layout.list_item, parent, false);
@@ -36,12 +37,13 @@ public class PlatformRecyclerViewAdapter extends CursorRecyclerViewAdapter<Platf
         return mCount;
     }
 
+
     @Override
     public void onBindViewHolder(ItemViewHolder viewHolder, Cursor cursor) {
-        if (cursor != null && cursor.moveToFirst()) {
+        if (cursor != null) {
             viewHolder.busNumberText.setText(cursor.getString(1));
             viewHolder.platformNumberText.setText(cursor.getString(2));
-            viewHolder.platformNumberText.setText(cursor.getString(3));
+            viewHolder.routeAddressText.setText(cursor.getString(3));
         }
 
     }
