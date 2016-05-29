@@ -5,6 +5,8 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorWhite">@android:color/white</color>
     <color name="colorBlack">@android:color/black</color>
-    <color name="colorWindowBackground">#f7f7f7</color>
+    <color name="colorWindowBackground">@color/colorGrey</color>
+    <color name="colorGrey">#eeeeee</color>
+
 
 </resources>
