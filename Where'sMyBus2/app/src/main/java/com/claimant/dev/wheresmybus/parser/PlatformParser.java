@@ -1,16 +1,14 @@
-package com.example.rajeevkr.wheresmybus.parser;
+package com.claimant.dev.wheresmybus.parser;
 
-import android.content.ContentProvider;
 import android.content.ContentProviderOperation;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.OperationApplicationException;
-import android.content.SharedPreferences;
 import android.os.RemoteException;
 import android.util.Log;
 
-import com.example.rajeevkr.wheresmybus.provider.PlatformInfoContract;
-import com.example.rajeevkr.wheresmybus.utils.Utils;
+import com.claimant.dev.wheresmybus.provider.PlatformInfoContract;
+import com.claimant.dev.wheresmybus.utils.Utils;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

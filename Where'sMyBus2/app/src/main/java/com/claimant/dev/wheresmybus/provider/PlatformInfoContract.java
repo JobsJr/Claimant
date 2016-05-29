@@ -1,4 +1,4 @@
-package com.example.rajeevkr.wheresmybus.provider;
+package com.claimant.dev.wheresmybus.provider;
 
 import android.content.UriMatcher;
 import android.net.Uri;

@@ -1,4 +1,4 @@
-package com.example.rajeevkr.wheresmybus.utils;
+package com.claimant.dev.wheresmybus.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.rajeevkr.wheresmybus">
+    package="com.claimant.dev.wheresmybus">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <application
@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.MainActivity"
+            android:name="com.claimant.dev.wheresmybus.activity.MainActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".activity.SplashActivity"
+            android:name="com.claimant.dev.wheresmybus.activity.SplashActivity"
             android:screenOrientation="portrait"
             >
             <intent-filter>
@@ -23,8 +23,8 @@
         </activity>
 
         <provider
-            android:name=".provider.PlatformProvider"
-            android:authorities="com.example.rajeevkr.wheremybus.provider"
+            android:name="com.claimant.dev.wheresmybus.provider.PlatformProvider"
+            android:authorities="com.claimant.dev.wheremybus.provider"
             android:exported="false" />
     </application>
 

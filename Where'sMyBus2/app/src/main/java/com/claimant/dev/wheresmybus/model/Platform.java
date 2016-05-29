@@ -1,4 +1,4 @@
-package com.example.rajeevkr.wheresmybus.model;
+package com.claimant.dev.wheresmybus.model;
 
 /**
  * POJO that defines the data model

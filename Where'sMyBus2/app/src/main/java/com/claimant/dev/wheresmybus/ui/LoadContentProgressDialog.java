@@ -1,9 +1,9 @@
-package com.example.rajeevkr.wheresmybus.ui;
+package com.claimant.dev.wheresmybus.ui;
 
 import android.app.ProgressDialog;
 import android.content.Context;
 
-import com.example.rajeevkr.wheresmybus.R;
+import com.claimant.dev.wheresmybus.R;
 
 /**
  * Created by rajeevkr on 5/29/16.

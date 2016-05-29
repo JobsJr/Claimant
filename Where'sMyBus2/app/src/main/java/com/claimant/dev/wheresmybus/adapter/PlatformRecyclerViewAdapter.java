@@ -1,4 +1,4 @@
-package com.example.rajeevkr.wheresmybus.adapter;
+package com.claimant.dev.wheresmybus.adapter;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.rajeevkr.wheresmybus.R;
+import com.claimant.dev.wheresmybus.R;
 
 /**
  * Created by rajeevkr on 5/29/16.

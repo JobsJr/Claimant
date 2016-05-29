@@ -1,4 +1,4 @@
-package com.example.rajeevkr.wheresmybus;
+package com.claimant.dev.wheresmybus;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

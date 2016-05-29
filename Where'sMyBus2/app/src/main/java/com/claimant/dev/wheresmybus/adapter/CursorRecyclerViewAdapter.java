@@ -1,4 +1,4 @@
-package com.example.rajeevkr.wheresmybus.adapter;
+package com.claimant.dev.wheresmybus.adapter;
 
 /*
  * Copyright (C) 2014 skyfish.jy@gmail.com

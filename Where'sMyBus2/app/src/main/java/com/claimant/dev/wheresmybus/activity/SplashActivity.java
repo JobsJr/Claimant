@@ -1,11 +1,8 @@
-package com.example.rajeevkr.wheresmybus.activity;
+package com.claimant.dev.wheresmybus.activity;
 
-
-import android.content.Intent;
-import android.provider.SyncStateContract;
 
 import com.daimajia.androidanimations.library.Techniques;
-import com.example.rajeevkr.wheresmybus.R;
+import com.claimant.dev.wheresmybus.R;
 import com.viksaa.sssplash.lib.activity.AwesomeSplash;
 import com.viksaa.sssplash.lib.model.ConfigSplash;
 

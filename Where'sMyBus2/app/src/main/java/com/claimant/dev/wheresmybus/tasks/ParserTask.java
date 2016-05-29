@@ -1,11 +1,11 @@
-package com.example.rajeevkr.wheresmybus.tasks;
+package com.claimant.dev.wheresmybus.tasks;
 
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 
-import com.example.rajeevkr.wheresmybus.activity.MainActivity;
-import com.example.rajeevkr.wheresmybus.parser.PlatformParser;
+import com.claimant.dev.wheresmybus.activity.MainActivity;
+import com.claimant.dev.wheresmybus.parser.PlatformParser;
 
 /**
  * Starts progressbar ,hands over the parsing job to @{@link PlatformParser}

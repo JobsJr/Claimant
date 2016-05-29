@@ -1,10 +1,9 @@
-package com.example.rajeevkr.wheresmybus.activity;
+package com.claimant.dev.wheresmybus.activity;
 
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -15,10 +14,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.rajeevkr.wheresmybus.R;
-import com.example.rajeevkr.wheresmybus.tasks.ParserTask;
-import com.example.rajeevkr.wheresmybus.ui.LoadContentProgressDialog;
-import com.example.rajeevkr.wheresmybus.utils.Utils;
+import com.claimant.dev.wheresmybus.R;
+import com.claimant.dev.wheresmybus.tasks.ParserTask;
+import com.claimant.dev.wheresmybus.ui.LoadContentProgressDialog;
+import com.claimant.dev.wheresmybus.utils.Utils;
 
 public class MainActivity extends AppCompatActivity implements ParserTask.OnParseCompleted {
     private LoadContentProgressDialog mProgressDialog;
