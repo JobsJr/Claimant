@@ -16,8 +16,8 @@ public class SplashActivity extends AwesomeSplash {
     @Override
     public void initSplash(ConfigSplash configSplash) {
 
-        final int durationInms = 2 * 1000;
-        final int textAnimationDurationInms = 3 * 1000;
+        final int durationInms = 1 * 1000;
+        final int textAnimationDurationInms = 1 * 1000;
 
         configSplash.setBackgroundColor(R.color.colorPrimary);
         configSplash.setAnimCircularRevealDuration(durationInms);
@@ -28,12 +28,12 @@ public class SplashActivity extends AwesomeSplash {
         configSplash.setAnimLogoSplashTechnique(Techniques.FadeInUp);
 
         //Customize Title
-        configSplash.setTitleFont("fonts/pacifico.ttf");
+        configSplash.setTitleFont("fonts/roboto_light.ttf");
         configSplash.setTitleSplash("Where's My Bus ?");
         configSplash.setTitleTextColor(android.R.color.white);
         configSplash.setTitleTextSize(30f); //float value
         configSplash.setAnimTitleDuration(textAnimationDurationInms);
-        configSplash.setAnimTitleTechnique(Techniques.FlipInX);
+        configSplash.setAnimTitleTechnique(Techniques.FadeInUp);
     }
 
     @Override

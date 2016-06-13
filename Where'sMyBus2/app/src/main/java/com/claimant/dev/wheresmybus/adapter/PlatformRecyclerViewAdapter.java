@@ -3,6 +3,7 @@ package com.claimant.dev.wheresmybus.adapter;
 import android.content.Context;
 import android.database.Cursor;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,7 +43,12 @@ public class PlatformRecyclerViewAdapter extends CursorRecyclerViewAdapter<Platf
     public void onBindViewHolder(ItemViewHolder viewHolder, Cursor cursor) {
         if (cursor != null) {
             viewHolder.busNumberText.setText(cursor.getString(1));
-            viewHolder.platformNumberText.setText(cursor.getString(2));
+            if(TextUtils.isEmpty(cursor.getString(2))){
+                viewHolder.platformNumberText.setText("Information not available!!");
+            }else{
+                viewHolder.platformNumberText.setText(cursor.getString(2));
+
+            }
             viewHolder.routeAddressText.setText(cursor.getString(3));
         }
 

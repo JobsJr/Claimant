@@ -15,6 +15,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -61,6 +62,13 @@ public class MainActivity extends AppCompatActivity implements ParserTask.OnPars
         if (toolbar != null) {
             toolbar.setTitle("Where's My Bus");
             toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.colorWhite));
+            toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_18dp);
+            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                }
+            });
         }
 
         mRecyclerView = (RecyclerView) findViewById(R.id.platform_list_rv);
