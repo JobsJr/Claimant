@@ -1,6 +1,7 @@
 package com.claimant.dev.wheresmybus.activity;
 
 import android.app.ProgressDialog;
+import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -12,6 +13,7 @@ import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
@@ -149,6 +151,11 @@ public class MainActivity extends AppCompatActivity implements ParserTask.OnPars
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater=getMenuInflater();
         inflater.inflate(R.menu.menu_platform_search,menu);
+
+        //Associate SearchView with Searchable Config
+        SearchManager searchManager=(SearchManager)getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView=(SearchView)menu.findItem(R.id.search).getActionView();
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
         return true;
     }
 }
