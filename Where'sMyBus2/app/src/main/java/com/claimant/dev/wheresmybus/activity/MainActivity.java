@@ -15,6 +15,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 
 import com.android.volley.RequestQueue;
@@ -141,5 +143,12 @@ public class MainActivity extends AppCompatActivity implements ParserTask.OnPars
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         //DO NOTHING
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.menu_platform_search,menu);
+        return true;
     }
 }
