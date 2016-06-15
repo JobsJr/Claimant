@@ -18,6 +18,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.SearchView;
 
@@ -33,10 +34,11 @@ import com.claimant.dev.wheresmybus.provider.PlatformInfoContract;
 import com.claimant.dev.wheresmybus.tasks.ParserTask;
 import com.claimant.dev.wheresmybus.ui.LoadContentProgressDialog;
 import com.claimant.dev.wheresmybus.utils.Utils;
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
     private BaseListFragment mBaseListFragment;
-
+    MaterialSearchView mSearchView;
 
     public static void start(Context context) {
         Intent starter = new Intent(context, MainActivity.class);
@@ -48,8 +50,8 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
 
-        if(savedInstanceState==null){
-            mBaseListFragment=BaseListFragment.newInstanse(getSupportFragmentManager(),this,R.id.fragment_content_container,null);
+        if (savedInstanceState == null) {
+            mBaseListFragment = BaseListFragment.newInstanse(getSupportFragmentManager(), this, R.id.fragment_content_container, null);
         }
 
         initViews();
@@ -72,14 +74,51 @@ public class MainActivity extends AppCompatActivity{
             });
             setSupportActionBar(toolbar);
         }
-    }
+        mSearchView = (MaterialSearchView) findViewById(R.id.search_view);
+        mSearchView.setCursorDrawable(R.drawable.drawable_cursor);
+        mSearchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                //Do some magic
+                return false;
+            }
 
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                //Do some magic
+                return false;
+            }
+        });
+
+        mSearchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
+            @Override
+            public void onSearchViewShown() {
+                //Do some magic
+            }
+
+            @Override
+            public void onSearchViewClosed() {
+                //Do some magic
+            }
+        });
+    }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater=getMenuInflater();
-        inflater.inflate(R.menu.menu_platform_search,menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_platform_search, menu);
+
+        MenuItem item = menu.findItem(R.id.search);
+        mSearchView.setMenuItem(item);
         return true;
+    }
+    @Override
+    public void onBackPressed() {
+        if (mSearchView.isSearchOpen()) {
+            mSearchView.closeSearch();
+        } else {
+            super.onBackPressed();
+        }
     }
 }
