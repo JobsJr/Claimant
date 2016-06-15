@@ -22,9 +22,6 @@
         </activity>
 
         <activity android:name=".activity.SearchResultsActivity">
-            <meta-data
-                android:name="android.app.SearchableInfo"
-                android:resource="@xml/searchable" />
         </activity>
 
         <provider

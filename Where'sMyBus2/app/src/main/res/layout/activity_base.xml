@@ -10,5 +10,11 @@
         android:layout_height="@dimen/toolbar_height"
         android:background="@color/colorPrimary" />
 
-    <include layout="@layout/activity_main" />
+   <FrameLayout
+       android:id="@+id/fragment_content_container"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+
+   </FrameLayout>
 </LinearLayout>

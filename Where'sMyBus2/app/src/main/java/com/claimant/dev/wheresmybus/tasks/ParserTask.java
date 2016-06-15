@@ -15,11 +15,13 @@ import com.claimant.dev.wheresmybus.parser.PlatformParser;
 public class ParserTask extends AsyncTask<Void, Void, Void> {
     protected String mHtmlResponse;
     protected Context mContext;
+    private OnParseCompleted mListener;
     private ProgressDialog mProgressDialog;
 
-    public ParserTask(String response, Context context) {
+    public ParserTask(String response, Context context,OnParseCompleted listener) {
         mHtmlResponse = response;
         mContext = context;
+        mListener=listener;
     }
 
     @Override
@@ -31,9 +33,9 @@ public class ParserTask extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected void onPostExecute(Void aVoid) {
-        if (mContext instanceof MainActivity) {
-            ((MainActivity) mContext).onParseCompleted();
-        }
+       if(mListener!=null){
+           mListener.onParseCompleted();
+       }
     }
 
     public static interface OnParseCompleted {
