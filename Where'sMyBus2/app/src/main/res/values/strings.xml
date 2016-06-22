@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">Where\'s My Bus</string>
+    <string name="app_name">SpotMyBus</string>
+    <string name="app_name_spaces">Spot my bus</string>
+
     <string name="search_hint">Search using route# or platform#</string>
     <string name="error_text">Oopse! It seems you have entered \n wrong Route number or platform number</string>
     <string name="click_here_to_search">Click here to search</string>
