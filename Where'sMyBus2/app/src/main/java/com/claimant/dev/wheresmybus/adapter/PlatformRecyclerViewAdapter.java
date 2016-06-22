@@ -15,16 +15,17 @@ import com.claimant.dev.wheresmybus.R;
  * Created by rajeevkr on 5/29/16.
  */
 
-public class PlatformRecyclerViewAdapter extends CursorRecyclerViewAdapter<PlatformRecyclerViewAdapter.ItemViewHolder> {
+public class PlatformRecyclerViewAdapter extends CursorRecyclerAdapter<PlatformRecyclerViewAdapter.ItemViewHolder> {
     private int mCount;
     private Context mContext;
 
     public PlatformRecyclerViewAdapter(Context context, Cursor cursor) {
-        super(context, cursor);
-        mCount = cursor.getCount();
+        super(cursor);
+        if (cursor == null) mCount = 0;
+        else
+            mCount = cursor.getCount();
         mContext = context;
     }
-
 
     @Override
     public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -34,36 +35,44 @@ public class PlatformRecyclerViewAdapter extends CursorRecyclerViewAdapter<Platf
 
 
     @Override
+    public void onBindViewHolderCursor(ItemViewHolder viewHolder, Cursor cursor) {
+        String busNumber = "";
+        if (cursor != null && cursor.getCount() > 0) {
+            if (cursor.getString(2).equalsIgnoreCase("100")) {
+                viewHolder.platformContainer.setVisibility(View.GONE);
+                return;
+            } else {
+                viewHolder.platformContainer.setVisibility(View.VISIBLE);
+                viewHolder.platformNumberText.setText(cursor.getString(2));
+            }
+
+            busNumber = cursor.getString(1);
+            if (busNumber.contains(",")) {
+                busNumber.replaceAll(",", "");
+            }
+            viewHolder.busNumberText.setText(busNumber);
+            viewHolder.routeAddressText.setText(cursor.getString(3));
+        }
+    }
+
+    @Override
     public int getItemCount() {
         return mCount;
     }
 
 
-    @Override
-    public void onBindViewHolder(ItemViewHolder viewHolder, Cursor cursor) {
-        if (cursor != null) {
-            viewHolder.busNumberText.setText(cursor.getString(1));
-            if(TextUtils.isEmpty(cursor.getString(2))){
-                viewHolder.platformNumberText.setText("Information not available!!");
-            }else{
-                viewHolder.platformNumberText.setText(cursor.getString(2));
-
-            }
-            viewHolder.routeAddressText.setText(cursor.getString(3));
-        }
-
-    }
-
     public class ItemViewHolder extends RecyclerView.ViewHolder {
         TextView busNumberText;
         TextView platformNumberText;
         TextView routeAddressText;
+        View platformContainer;
 
         public ItemViewHolder(View itemView) {
             super(itemView);
             busNumberText = (TextView) itemView.findViewById(R.id.tv_bus_num);
             platformNumberText = (TextView) itemView.findViewById(R.id.tv_platform);
             routeAddressText = (TextView) itemView.findViewById(R.id.tv_via);
+            platformContainer = itemView.findViewById(R.id.item_container);
 
         }
     }

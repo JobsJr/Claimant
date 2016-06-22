@@ -8,6 +8,4 @@
     <color name="colorWindowBackground">@color/colorGrey</color>
     <color name="colorGrey">#eeeeee</color>
     <color name="colorDarkGrey">#757575</color>
-
-
 </resources>

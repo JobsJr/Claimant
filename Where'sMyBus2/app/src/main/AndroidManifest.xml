@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.claimant.dev.wheresmybus.activity.MainActivity"
+            android:name="com.claimant.dev.wheresmybus.activity.PlatformListActivity"
             android:screenOrientation="portrait"></activity>
         <activity
             android:name="com.claimant.dev.wheresmybus.activity.SplashActivity"

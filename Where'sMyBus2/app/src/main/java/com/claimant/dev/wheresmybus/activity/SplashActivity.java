@@ -38,7 +38,7 @@ public class SplashActivity extends AwesomeSplash {
 
     @Override
     public void animationsFinished() {
-        MainActivity.start(this);
+        PlatformListActivity.start(this);
         finish();
     }
 }

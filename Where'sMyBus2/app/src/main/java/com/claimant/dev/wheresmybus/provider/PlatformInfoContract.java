@@ -45,7 +45,7 @@ public final class PlatformInfoContract {
                 PlatformItems.COLUMN_PLATFORM,
                 PlatformItems.COLUMN_ROUTE
         };
-        public static final String DEFAULT_SORT_ORDER = COLUMN_BUS + " ASC";
+        public static final String DEFAULT_SORT_ORDER = "CAST (" + PlatformItems.COLUMN_PLATFORM + " AS INTEGER)" + " ASC";
 
 
     }

@@ -4,7 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 
-import com.claimant.dev.wheresmybus.activity.MainActivity;
 import com.claimant.dev.wheresmybus.parser.PlatformParser;
 
 /**

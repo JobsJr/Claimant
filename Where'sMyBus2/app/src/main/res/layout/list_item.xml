@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_container"
     style="@style/AppTheme.ListItem"
     android:orientation="horizontal">
 
@@ -19,10 +20,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:padding="4dp"
-            android:src="@drawable/ic_directions_bus_white_18dp" />
+            app:srcCompat="@drawable/vc_platform" />
 
         <TextView
-            android:id="@+id/tv_bus_num"
+            android:id="@+id/tv_platform"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -45,10 +46,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="2dp"
-            app:srcCompat="@drawable/ic_location_on_18" />
+            app:srcCompat="@drawable/vc_bus" />
 
         <TextView
-            android:id="@+id/tv_platform"
+            android:id="@+id/tv_bus_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="2dp"
@@ -90,9 +91,9 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layerType="software"
         android:layout_alignParentBottom="true"
         android:layout_below="@id/layout_route_container"
-        android:background="@drawable/divider_dotted" />
+        android:background="@drawable/divider_dotted"
+        android:layerType="software" />
 
 </RelativeLayout>

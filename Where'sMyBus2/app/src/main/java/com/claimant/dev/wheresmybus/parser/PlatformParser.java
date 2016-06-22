@@ -5,12 +5,14 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.OperationApplicationException;
 import android.os.RemoteException;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.claimant.dev.wheresmybus.provider.PlatformInfoContract;
 import com.claimant.dev.wheresmybus.utils.Utils;
 
 import org.jsoup.Jsoup;
+import org.jsoup.helper.StringUtil;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -84,12 +86,13 @@ public class PlatformParser {
                 "Platform: " + busElement.get(3).text());
 
         ContentValues contentValues = new ContentValues();
+
         contentValues.put(PlatformInfoContract.PlatformItems.COLUMN_BUS,
                 busElement.get(1).text());
         contentValues.put(PlatformInfoContract.PlatformItems.COLUMN_ROUTE,
                 busElement.get(2).text());
         contentValues.put(PlatformInfoContract.PlatformItems.COLUMN_PLATFORM,
-                busElement.get(3).text());
+                TextUtils.isEmpty(busElement.get(3).text()) || busElement.get(3).text().equalsIgnoreCase("48") ? "100" : busElement.get(3).text());
         return contentValues;
 
     }
