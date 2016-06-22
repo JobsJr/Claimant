@@ -46,7 +46,7 @@ public class PlatformListActivity extends AppCompatActivity {
     private void initViews() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {
-            toolbar.setTitle("Where's My Bus");
+            toolbar.setTitle(getString(R.string.app_name));
             toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.colorWhite));
             toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_18dp);
             toolbar.setNavigationOnClickListener(new View.OnClickListener() {

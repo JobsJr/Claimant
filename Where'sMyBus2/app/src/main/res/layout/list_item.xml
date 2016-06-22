@@ -10,7 +10,7 @@
     <LinearLayout
         android:id="@+id/layout_route_container"
         android:layout_width="78dp"
-        android:layout_height="78dp"
+        android:layout_height="82dp"
         android:background="@color/colorPrimary"
         android:orientation="vertical">
 
@@ -81,10 +81,9 @@
             android:layout_height="wrap_content"
             android:ellipsize="marquee"
             android:maxLines="2"
-            android:padding="2dp"
             android:textColor="@color/colorBlack"
             android:textSize="14dp"
-            tools:text="Banashankari, Sarakki, Konanankunte" />
+            tools:text="Banashankari, Sarakki, Yonanankunte,Banashankari,Sarakki,Yonanankunte" />
     </LinearLayout>
 
 
