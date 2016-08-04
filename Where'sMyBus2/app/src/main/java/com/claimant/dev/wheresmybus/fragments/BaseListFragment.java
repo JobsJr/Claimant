@@ -3,6 +3,7 @@ package com.claimant.dev.wheresmybus.fragments;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.database.Cursor;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -46,7 +47,7 @@ public class BaseListFragment extends Fragment implements ParserTask.OnParseComp
     private RecyclerView mRecyclerView;
     private LoadContentProgressDialog mProgressDialog;
     private static final int LOADER_ID = 2000;
-    private PlatformRecyclerViewAdapter mRecyclerViewAdapter;
+    private PlatformGridRecyclerViewAdapter mRecyclerViewAdapter;
     private boolean mIsDisplayingFilteredResult;
     private View mRootView;
     private View mEmptyView;
@@ -80,8 +81,11 @@ public class BaseListFragment extends Fragment implements ParserTask.OnParseComp
     private void initViews(View view) {
         mEmptyView = view.findViewById(R.id.layout_error_container);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.platform_list_rv);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        GridLayoutManager linearLayoutManager = new GridLayoutManager(getActivity(), 2);
         mRecyclerView.setLayoutManager(linearLayoutManager);
+
+        mRecyclerView.addItemDecoration(new GridSpacingItemDecoration(2, 32, true));
+
 
     }
 
@@ -91,7 +95,6 @@ public class BaseListFragment extends Fragment implements ParserTask.OnParseComp
         if (getArguments() != null && getArguments().getString(BUNDLE_KEY_START_MODE).equalsIgnoreCase(BUNDLE_START_MODE_SEARCH)) {
             return;
         }
-        mRecyclerViewAdapter= new PlatformRecyclerViewAdapter(getActivity(), null);
         displayProgress();
         //make request based on flag
         if (!Utils.getSyncStatus(getActivity())) {
@@ -157,13 +160,17 @@ public class BaseListFragment extends Fragment implements ParserTask.OnParseComp
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         if (args == null) {
-            return new CursorLoader(getActivity(), PlatformInfoContract.PlatformItems.CONTENT_URI, PlatformInfoContract.PlatformItems.PROJECTION_ALL, null, null,
+            return new CursorLoader(getActivity(), PlatformInfoContract.PlatformItems.CONTENT_URI,
+                    PlatformInfoContract.PlatformItems.PROJECTION_ALL, null, null,
                     PlatformInfoContract.PlatformItems.DEFAULT_SORT_ORDER);
         } else {
             String text = args.getString(BUNDLE_QUERY);
-            String selection = PlatformInfoContract.PlatformItems.COLUMN_BUS + "=\"" + text + "\"" + " or " +
-                    PlatformInfoContract.PlatformItems.COLUMN_PLATFORM + "=\"" + text + "\"";
-            return new CursorLoader(getActivity(), PlatformInfoContract.PlatformItems.CONTENT_URI, PlatformInfoContract.PlatformItems.PROJECTION_ALL, selection, null,
+            String selection = PlatformInfoContract.PlatformItems.COLUMN_BUS + " LIKE ?"+ " or " +
+                    PlatformInfoContract.PlatformItems.COLUMN_PLATFORM + " LIKE ?";
+            String [] selectionArgs=new String[]{"%"+text+"%","%"+text+"%"};
+            return new CursorLoader(getActivity(), PlatformInfoContract.PlatformItems.CONTENT_URI,
+                    PlatformInfoContract.PlatformItems.PROJECTION_ALL,
+                    selection, selectionArgs,
                     PlatformInfoContract.PlatformItems.DEFAULT_SORT_ORDER);
         }
     }
@@ -174,7 +181,7 @@ public class BaseListFragment extends Fragment implements ParserTask.OnParseComp
             if (mEmptyView.getVisibility() == View.VISIBLE) {
                 mEmptyView.setVisibility(View.GONE);
             }
-            mRecyclerViewAdapter = new PlatformRecyclerViewAdapter(getActivity(), data);
+            mRecyclerViewAdapter = new PlatformGridRecyclerViewAdapter(getActivity(), data);
             mRecyclerView.setAdapter(mRecyclerViewAdapter);
             if (mProgressDialog != null && mProgressDialog.isShowing()) {
                 mProgressDialog.dismiss();
@@ -207,5 +214,40 @@ public class BaseListFragment extends Fragment implements ParserTask.OnParseComp
             startLoading(null);
         }
 
+    }
+
+    public static class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
+
+        private int spanCount;
+        private int spacing;
+        private boolean includeEdge;
+
+        public GridSpacingItemDecoration(int spanCount, int spacing, boolean includeEdge) {
+            this.spanCount = spanCount;
+            this.spacing = spacing;
+            this.includeEdge = includeEdge;
+        }
+
+        @Override
+        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+            int position = parent.getChildAdapterPosition(view); // item position
+            int column = position % spanCount; // item column
+
+            if (includeEdge) {
+                outRect.left = spacing - column * spacing / spanCount; // spacing - column * ((1f / spanCount) * spacing)
+                outRect.right = (column + 1) * spacing / spanCount; // (column + 1) * ((1f / spanCount) * spacing)
+
+                if (position < spanCount) { // top edge
+                    outRect.top = spacing;
+                }
+                outRect.bottom = spacing; // item bottom
+            } else {
+                outRect.left = column * spacing / spanCount; // column * ((1f / spanCount) * spacing)
+                outRect.right = spacing - (column + 1) * spacing / spanCount; // spacing - (column + 1) * ((1f /    spanCount) * spacing)
+                if (position >= spanCount) {
+                    outRect.top = spacing; // item top
+                }
+            }
+        }
     }
 }

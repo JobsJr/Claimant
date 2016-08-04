@@ -81,6 +81,8 @@
             android:layout_height="wrap_content"
             android:ellipsize="marquee"
             android:maxLines="2"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
             android:textColor="@color/colorBlack"
             android:textSize="14dp"
             tools:text="Banashankari, Sarakki, Yonanankunte,Banashankari,Sarakki,Yonanankunte" />

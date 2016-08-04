@@ -170,7 +170,7 @@ public class SplashActivity extends AwesomeSplash {
         configSplash.setPathSplashFillColor(R.color.colorSplash); //path object filling color
 
         //Customize Title
-        configSplash.setTitleFont("fonts/roboto_condensed_bold.ttf");
+        configSplash.setTitleFont("fonts/roboto_thin.ttf");
         configSplash.setTitleSplash(getString(R.string.app_name));
         configSplash.setTitleTextColor(R.color.colorWhite);
         configSplash.setTitleTextSize(30f); //float value
